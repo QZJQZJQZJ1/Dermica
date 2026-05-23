@@ -30,16 +30,18 @@ app.get('/anti_fake/ElequeryEn', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// 获取格式化时间
+// 获取格式化时间 (强制转换为 UTC+8 北京时间，格式：YYYY/M/D HH:mm:ss(UTC+8))
 function getFormattedDate() {
+    // 获取当前时间，并强制加上 8 小时的毫秒数
     const d = new Date(new Date().getTime() + 8 * 60 * 60 * 1000);
 
-    return d.getUTCFullYear() + "-" +
-        String(d.getUTCMonth() + 1).padStart(2, '0') + "-" +
-        String(d.getUTCDate()).padStart(2, '0') + " " +
+    // 拼接目标格式
+    return d.getUTCFullYear() + "/" +
+        (d.getUTCMonth() + 1) + "/" + // 去掉补零
+        d.getUTCDate() + " " +        // 去掉补零
         String(d.getUTCHours()).padStart(2, '0') + ":" +
         String(d.getUTCMinutes()).padStart(2, '0') + ":" +
-        String(d.getUTCSeconds()).padStart(2, '0');
+        String(d.getUTCSeconds()).padStart(2, '0') + "(UTC+8)"; // 末尾追加时区标识
 }
 
 // API 路由
