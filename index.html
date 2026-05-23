@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Dermica</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=7,IE=9" />
+  <meta name='viewport' content='width=640px, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no,target-densitydpi=device-dpi' />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+  <meta name="format-detection" content="telephone=no" />
+
+  <script src="/css/SourceShow/js/jquery-1.9.1.js"></script>
+  <script src="/20201009/layer.mobile-v2.0/layer_mobile/layer.js"></script>
+  <link href="/20201009/css/reset.css" rel="stylesheet" />
+  <script src="/js/hhSwipe.js"></script>
+
+  <style>
+    /* 保留了你原有的样式代码 */
+    body { background-image:url('/images/watermark.jpg'); background-repeat:repeat; }
+    .Title { font-weight: bold; font-size: 1.125rem; color: #212121; line-height: 1.375rem; margin-top: 0.625rem; text-align: center; }
+    .font { font-size: 0.875rem; color: #4a5060; line-height: 1.25rem; }
+    .line { width: 0.1875rem; margin-top: 0.375rem; height: 0.75rem; background: #212121; }
+    .lh30 { line-height: 1.875rem; }
+    .border { border-bottom: 1px solid #d8d8d8; margin: 0.9375rem 0 0.625rem 0; }
+    .ml16 { padding: 0.5rem; }
+    .mr16 { margin-right: 1rem; }
+    .mb30 { margin-bottom: 1.875rem; }
+    .mt30 { margin-top: 30px; }
+    .section1 { padding: 1.25rem 0.875rem 0 0.875rem; }
+    .section2 { padding: 0 0.875rem 0 0.875rem; }
+    .section3 { padding: 0 0.875rem 0 0.875rem; }
+    .section4 { padding: 0 0.875rem 0 0.875rem; }
+    .tsBtn { margin-top: 1.875rem; width: 3.5rem; line-height: 1rem; background: #212121; border-radius: 0.125rem; font-size: 0.75rem; text-align: center; color: #ffffff; }
+    .contentFonts { width: 25%; line-height: 1rem; border-radius: 0.125rem; text-align: center; }
+    .header { width: 94%; border-bottom: 1px solid #ddd; margin: 0 auto; margin-top: 10px; }
+    .footerTitle { margin-left: 0.2rem; font-size: 1rem; text-align: left; font-weight: bold; line-height: 1rem; }
+    .footerContent { padding: 0.625rem 0.875rem 1rem 1rem; }
+    .footerContent li { line-height: 1.875rem; }
+    .gallery-thumbs { margin: 0 0.9375rem; padding: 0.625rem 0; }
+    .contenter { position: relative; }
+    .image { width: 100%; }
+    .jc-sb span:first-child { color: #8a8a8a; }
+    .jc-sb span:nth-child(2) { font-weight: bold; margin-left: 5px; }
+    .scroll { margin: 0px auto; max-width: 640px; position: relative; }
+    .scroll_box { overflow: hidden; visibility: hidden; position: relative; }
+    .scroll_wrap { overflow: hidden; position: relative; }
+    .scroll_wrap li { position: relative; display: block; width: 100%; float: left; }
+    .scroll_wrap li a { display: block; margin: 0 auto; position: relative; }
+    .scroll_position { position: absolute; left: 43%; z-index: 10; bottom: 10px; margin-left: 10px; }
+    .scroll_position li { display: inline-block; z-index: -9; }
+    .scroll_position li a { width: 9px; height: 9px; box-sizing: border-box; text-decoration: none; outline: none; float: left; background: #999; z-index: -9; font-size: 0px; border-radius: 50%; opacity: 0.85; }
+    .scroll_position li a.on { background: #4098a5; }
+    .scroll_position_bg { position: absolute; bottom: 10px; left: 43%; padding: 0 15px; z-index: 380; height: 20px; border-radius: 26px; }
+  </style>
+</head>
+<body class="font">
+
+<div class="ems_global">
+  <div class="scroll relative">
+    <div class="scroll_box" id="scroll_img">
+      <ul class="scroll_wrap">
+        <li>
+          <div onclick="location.href = 'public/images/Product/P_108260418153509010.png'">
+            <img alt="" src="http://dsdpc.fangcuanhuoxitong.com//images/Product/P_108260418153509010.png" style="width: 100%;" />
+          </div>
+        </li>
+      </ul>
+    </div>
+    <span class="scroll_position_bg opacity6"></span>
+    <ul class="scroll_position" id='scroll_position'>
+      <li><a href="javascript:void(0);"></a></li>
+    </ul>
+  </div>
+
+  <script type="text/javascript">
+    window.onload = function urlborder() {
+      var div = document.getElementById("div");
+      if(div) {
+        var listr = div.getElementsByTagName('dl');
+        for (var i = 0; i < listr.length; i++) {
+          if (i == listr.length - 1) {
+            listr[i].style.borderWidth = "0";
+          }
+        }
+      }
+    }
+  </script>
+  <script type="text/javascript">
+    var bullets = document.getElementById('scroll_position').getElementsByTagName('a');
+    var scrollImg = document.getElementById('scroll_img');
+    if (scrollImg && typeof Swipe === 'function') {
+      var slider = Swipe(scrollImg, {
+        auto: 3000,
+        continuous: true,
+        callback: function (pos) {
+          var i = bullets.length;
+          while (i--) {
+            bullets[i].className = ' ';
+          }
+          if(bullets[pos]) bullets[pos].className = 'on';
+        }
+      });
+    }
+
+    $(function () {
+      if(bullets[0]) bullets[0].className = 'on';
+      $('.scroll_position_bg').css({
+        width: $('#scroll_position').width()
+      });
+    });
+  </script>
+</div>
+
+<div class="body_container">
+  <section class="section1">
+    <div class="fcc">
+      <div class="flex2 aic">
+        <div class="Title">Acnezon</div>
+      </div>
+    </div>
+  </section>
+
+  <div class=" header">
+    <span class="footerTitle">IDENT INFO</span>
+  </div>
+
+  <ul class="footerContent lh30">
+    <li class="flex jc-sb">
+      <span>Result</span>
+      <span id="result">Loading...</span>
+    </li>
+    <li class="flex jc-sb">
+      <span>Freq</span>
+      <span id="times"></span>
+    </li>
+    <li class="flex jc-sb">
+      <span>First Time</span>
+      <span id="time_identification"></span>
+    </li>
+    <li class="flex jc-sb">
+      <span>First Address</span>
+      <span id="location_identification"></span>
+    </li>
+  </ul>
+
+  <div class=" header">
+    <span class="footerTitle">COMPANY INFO</span>
+  </div>
+  <ul class="footerContent lh30">
+    <li class="flex jc-sb">
+      <span>Company Name</span>
+      <span>Dermica International Limited</span>
+    </li>
+    <li class="flex jc-sb">
+      <span>Company Address</span>
+      <span>Avda.Conocimiento,34.,18016 Granada,Spain</span>
+    </li>
+  </ul>
+</div>
+
+<script>
+  $(document).ready(function() {
+    // 1. 从 URL 中解析 code 参数
+    const urlParams = new URLSearchParams(window.location.search);
+    const code = urlParams.get('code');
+
+    if (code) {
+      // 2. 发送请求给 Node.js 后端接口
+      $.ajax({
+        url: '/api/verify?code=' + code,
+        type: 'GET',
+        success: function(data) {
+          // 确保解析为 JSON 对象
+          var json = typeof data === 'string' ? JSON.parse(data) : data;
+
+          // 3. 执行你的显示逻辑
+          if (json.State == "1") {
+            // 首次查询
+            $("#result").html("Real");
+            $("#times").html("One");
+            $("#time_identification").html("");
+            $("#location_identification").html("");
+          } else if (json.State == "0") {
+            // 多次查询
+            $("#result").html("Real");
+            $("#times").html(json.Times + "s");
+            $("#time_identification").html(json.FirstDate);
+            $("#location_identification").html(json.RecordList[0].Address);
+          } else {
+            // 验证码不存在或异常 (-1 或其他)
+            $("#result").html("Fake").css("color", "red");
+            $("#times").html("Invalid");
+            $("#time_identification").html("-");
+            $("#location_identification").html("-");
+          }
+        },
+        error: function() {
+          $("#result").html("Network Error").css("color", "red");
+        }
+      });
+    } else {
+      // 未检测到 Code 参数
+      $("#result").html("No Code").css("color", "red");
+      $("#times").html("-");
+    }
+  });
+</script>
+
+<script src="/20201009/js/rem.js"></script>
+</body>
+</html>
