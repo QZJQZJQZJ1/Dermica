@@ -32,13 +32,14 @@ app.get('/anti_fake/ElequeryEn', (req, res) => {
 
 // 获取格式化时间
 function getFormattedDate() {
-    const d = new Date();
-    return d.getFullYear() + "-" +
-        String(d.getMonth() + 1).padStart(2, '0') + "-" +
-        String(d.getDate()).padStart(2, '0') + " " +
-        String(d.getHours()).padStart(2, '0') + ":" +
-        String(d.getMinutes()).padStart(2, '0') + ":" +
-        String(d.getSeconds()).padStart(2, '0');
+    const d = new Date(new Date().getTime() + 8 * 60 * 60 * 1000);
+
+    return d.getUTCFullYear() + "-" +
+        String(d.getUTCMonth() + 1).padStart(2, '0') + "-" +
+        String(d.getUTCDate()).padStart(2, '0') + " " +
+        String(d.getUTCHours()).padStart(2, '0') + ":" +
+        String(d.getUTCMinutes()).padStart(2, '0') + ":" +
+        String(d.getUTCSeconds()).padStart(2, '0');
 }
 
 // API 路由
